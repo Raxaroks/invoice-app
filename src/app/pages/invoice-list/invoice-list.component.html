@@ -1,0 +1,40 @@
+<div>
+  <div class="heading">
+    <h2>Búsqueda por fechas</h2>
+  </div>
+
+  <div class="form">
+    <app-datepicker name='start' label="Fecha inicial" [required]="true" [formControl]="start"></app-datepicker>
+    <app-datepicker name='end' label="Fecha final" [required]="true" [formControl]="end"></app-datepicker>
+
+    <button funButton class='as-center' color='secondary' (click)="search()">
+      Buscar
+    </button>
+    <button funButton class='as-center' [outline]='true' (click)="reset()">
+      Limpiar
+    </button>
+  </div>
+
+  <div class='mt-2 d-flex' style='justify-content: center;'>
+    <app-spinner *ngIf="loading"></app-spinner>
+
+    <div class="table__container" *ngIf="(!loading) && (items.length > 0)">
+      <table class='invoices'>
+        <tr>
+          <th>ID</th>
+          <th>Número de factura</th>
+          <th>Total</th>
+          <th>Fecha de la factura</th>
+          <th>Status</th>
+        </tr>
+        <tr *ngFor="let item of items">
+          <td>{{ item.id }}</td>
+          <td>{{ item.invoice_number }}</td>
+          <td>{{ item.total }}</td>
+          <td>{{ item.invoice_date | date : "YYYY-MM-dd hh:mm:ss" }}</td>
+          <td>{{ item.status }}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

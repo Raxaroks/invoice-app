@@ -1,0 +1,14 @@
+
+.container {
+  display: flex;
+  max-width: 115rem;
+  min-height: 80rem;
+  margin: 8rem auto;
+  background-color: #fff;
+  border-radius: 1rem;
+}
+
+.content {
+  flex: 1;
+  min-height: 80vh;
+}

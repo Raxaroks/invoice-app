@@ -1,0 +1,10 @@
+<div class='datepicker'>
+  <ng-container *ngIf="required; else notRequired">
+    <label [for]="name">{{label}} <span class='asterisk'>* </span></label>
+  </ng-container>
+  <ng-template #notRequired>
+    <label [for]="name">{{label}}</label>
+  </ng-template>
+ 
+  <input type="date" [name]="name" [formControl]='formControl!'>
+</div>

@@ -1,0 +1,95 @@
+.sidebar {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  background-color: #333;
+  color: #cbcbcb;
+  border-radius: 1rem 0rem 0rem 1rem;
+  font-size: 1.6rem;
+
+  &__heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4rem;
+
+    h3 {
+      margin-left: 1rem;
+    }
+
+    &--logo {
+      padding: .5rem;
+      background-color: #eee;
+      border-radius: 4rem;
+
+      img {
+        width: 4rem;
+        height: 3rem;
+      }
+    }
+  }
+
+  &__nav {
+    font-size: 1.4rem;
+    list-style: none;
+    flex: 1;
+    margin-top: 5rem;
+
+    &--item {
+      position: relative;
+
+      &:not(:last-child) {
+        margin-bottom: .5rem;
+      }
+
+      a:link,
+      a:visited {
+        color: var(--color-grey-light-1);
+        text-decoration: none;
+        position: relative;
+        display: block;
+        padding: 1.5rem 3rem;
+        z-index: 10;
+
+        display: flex;
+        align-items: center;
+      }
+
+      &--active {
+        background-color: var(--color-primary);
+      }
+    }
+
+    &--item::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: .3rem;
+      background-color: var(--color-primary);
+      transform: scaleY(0);
+      transition: transform .2s,
+                  width .4s cubic-bezier(1, 0, 0, 1) .2s,
+                  background-color .1s;
+    }
+
+    &--item:hover::before,
+    &--item--active::before {
+      transform: scaleY(1);
+      width: 100%;
+    }
+
+    &--item:active::before {
+      background: var(--color-primary);
+    }
+  }
+
+  &__footer {
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 2rem;
+  }
+}

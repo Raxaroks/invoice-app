@@ -1,0 +1,19 @@
+<div class="sidebar">
+  <div class="sidebar__heading">
+    <div class='sidebar__heading--logo'>
+      <img src="assets/contalink-logo.png">
+    </div>
+    <h3>Contalink Dashboard</h3>
+  </div>
+
+  <ul class='sidebar__nav'>
+    <li class="sidebar__nav--item"
+      *ngFor="let item of navItems">
+      <a class="sidebar__nav--link" [routerLink]="item.to" [routerLinkActive]="['sidebar__nav--item--active']">{{ item.name }}</a>
+    </li>
+  </ul>
+
+  <div class="sidebar__footer">
+    &copy; 2024 por Andrés Ornelas. Todos los derechos reservados.
+  </div>
+</div>
